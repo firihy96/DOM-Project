@@ -1,0 +1,862 @@
+/* Global Rules */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans',
+        sans-serif;
+    text-transform: capitalize;
+    box-sizing: border-box;
+}
+
+:root {
+    --glob-width: 80%;
+    --main-color: #d11149;
+    --side-bar-width: 15rem;
+    --text-color: gray;
+    --secondary-bg-color: #eee;
+}
+
+a, a:visited {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+
+}
+
+a:active,
+a:hover {
+    color: var(--main-color);
+    transition: 0.3s;
+}
+
+/* End Global Rules */
+
+/* Mutual styled Elements */
+.section-header,
+main .about .words>p:first-child,
+main .skill-cont>p:first-child,
+main .gallery-cont #our-gallery,
+main .feat-cont>p,
+.contact-cont >p{
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-inline: auto;
+
+}
+
+.centralize-cont,
+main .skill-cont,
+main .skills,
+main .feat-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+}
+
+/*
+*************************************************************************************/
+/* Start Setting Side */
+/* Side Bar */
+.open {
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 20;
+    width: var(--side-bar-width);
+    height: 100vh;
+    transition: 0.4s;
+}
+
+main aside {
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: calc(var(--side-bar-width) * -1);
+    z-index: 20;
+    min-width: var(--side-bar-width);
+    height: 100vh;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0 1rem 1rem 0;
+    padding: 1rem 0;
+}
+
+/* Icon */
+main aside .icon {
+    background-color: rgb(255, 255, 255);
+    color: var(--main-color);
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    right: -2rem;
+    z-index: 20;
+    cursor: pointer;
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
+/* Options */
+main aside>div {
+    width: var(--glob-width);
+    height: calc(fit-content + 1rem);
+    background-color: rgba(238, 238, 238, 0.7);
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1rem 0;
+}
+
+aside h3 {
+    color: grey;
+}
+
+/* Start COLOR */
+main aside ul:first-of-type {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    list-style-position: inside;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+main aside .options .color li {
+    opacity: 0.3;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Active element Styling */
+main aside .options .color li.active {
+    opacity: 1;
+    transition: 0.3s;
+    outline: 4px solid white;
+}
+
+main aside .options .color :nth-child(1) {
+    background-color: #f1c40f;
+}
+
+main aside .options .color :nth-child(2) {
+    background-color: #00cc66;
+}
+
+main aside .options .color :nth-child(3) {
+    background-color: #d11149;
+}
+
+main aside .options .color :nth-child(4) {
+    background-color: #f75c03;
+}
+
+main aside .options .color :nth-child(5) {
+    background-color: #2274a5;
+}
+
+/* End COLOR */
+/* Start Rand Opt */
+main aside :not(:first-child) ul {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+main aside :not(:first-child) ul li {
+    width: 3rem;
+    height: 1.5rem;
+    margin-inline: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+/* Reset Button */
+main aside .reset {
+    width: var(--glob-width);
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    color: white;
+    font-weight: bold;
+    background-color: var(--main-color);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+/* End Rand Opt */
+/* End Setting Side */
+/*
+*************************************************************************************/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.global-cont {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/imgs/01.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    transition-property: background-image;
+    transition-duration: 0.5s;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+*************************************************************************************/
+/* Start Styling Header */
+header {
+    width: var(--glob-width);
+    height: 10vh;
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p {
+    margin: 1rem 0px;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+
+header ul.upnormal {
+    list-style: none;
+    column-count: 2;
+    /* flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 3; */
+    position: absolute;
+    top: 2%;
+    left: 57%;
+}
+
+header ul.upnormal li{
+    font-size: 0.75em;
+}
+
+
+header ul.normal {
+    margin: 1rem 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 3;
+    flex-wrap: wrap;
+}
+header ul.normal li{
+    display: inline-block;
+}
+
+/* End Styling Header */
+/*
+*************************************************************************************/
+/* Start Styling Main */
+
+.intro {
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro :first-child {
+    width: var(--glob-width);
+    margin-bottom: 1.5rem;
+
+}
+
+.intro span {
+    color: var(--main-color);
+    font-size: 2.5rem;
+}
+
+.intro :nth-child(2) {
+    width: var(--glob-width);
+    line-height: 1.6;
+    font-size: 1.25rem;
+}
+
+
+
+/*
+*************************************************************************************/
+
+
+/* Start About-us section */
+
+main .about {
+    width: var(--glob-width);
+    margin-inline: auto;
+    min-height: 60vh;
+    background-color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+main .about .words {
+    margin-block: 5vh;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 2fr;
+    gap: 1rem;
+    color: var(--text-color);
+}
+
+/* Look [UP] Mutual  */
+main .about .words p:last-child {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about img {
+    display: block;
+    width: 30%;
+    height: auto;
+}
+
+/* End About-us section */
+
+/*
+*************************************************************************************/
+
+/* Start Skills Section */
+
+main .skill-cont {
+    /* Centralized group */
+    width: 100%;
+    min-height: 55vh;
+    background-color: var(--secondary-bg-color);
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding-block: 5vh;
+}
+
+main .skills {
+    /* Centralized group */
+    width: var(--glob-width);
+    margin-inline: auto;
+    flex-flow: column;
+    gap: 1.5rem;
+}
+
+.same-skill-cont-style,
+.skills .s1,
+.skills .s2,
+.skills .s3 {
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    gap: 1rem;
+}
+
+.skills div {
+    display: flex;
+    align-items: center;
+    padding-inline: 3rem;
+}
+
+.same-skill-word-style,
+.skills p {
+    text-transform: inherit;
+    font-weight: bold;
+}
+
+.same-skill-prog-bg,
+.skills div span.prog-cont {
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--secondary-bg-color);
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+/* General Class prop&anime for spans */
+.skills span.prog {
+    background-color: var(--main-color);
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+    border-radius: 0px 0.5rem 0.5rem 0px;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+.skills .s1 span.prog {
+    animation-name: ani-prog-html;
+    width: var(--html);
+}
+
+@keyframes ani-prog-html {
+
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--html);
+    }
+}
+
+.skills .s2 span.prog {
+    animation-name: ani-prog-css;
+    width: var(--css);
+}
+
+@keyframes ani-prog-css {
+    0% {
+            width: 0%;
+        }
+    100% {
+        width: var(--css);
+    }
+}
+
+.skills .s3 span.prog {
+    animation-name: ani-prog-js;
+    width: var(--js);
+}
+
+@keyframes ani-prog-js {
+    0% {
+            width: 0%;
+        }
+    100% {
+        width: var(--js);
+    }
+}
+
+.skills span.prog.disapp {
+    display: none;
+}
+
+/* End Skills Section */
+
+/*
+*************************************************************************************/
+
+/* Start gallery section */
+
+main .gallery-cont {
+    /* Centralized group */
+    width: var(--glob-width);
+    min-height: 70vh;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+}
+
+.gallery {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+    padding-top: 2rem;
+}
+
+.gallery>img {
+    display: inline-block;
+    width: 150px;
+    margin-inline: auto;
+    height: 100px;
+    outline: 2px groove var(--main-color);
+    outline-offset: 1px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+/*Setting display view*/
+.layer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+.layer .lay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    /* height: 75vh ; */
+    background-color: white;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.layer #photo {
+    width:60vw;
+}
+/* Close Button */
+.layer #close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2rem;
+    background-color: var(--main-color);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px white inset;
+    position: absolute;
+    z-index: 60;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+
+
+/* End gallery section */
+
+/*
+*************************************************************************************/
+
+/* Start Features Section */
+
+main .feat-cont {
+    /* Centralized Group */
+    width: var(--glob-width);
+    margin-block: 5vh;
+    flex-direction: column;
+}
+
+.feat {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding-block: 5vh;
+}
+
+.feat>div {
+    text-align: center;
+    width: calc( (100% - 2rem ) / 3);
+    margin-block: 1.5rem;
+}
+
+.feat>div>img {
+    display: block;
+    margin-inline: auto;
+    width: 15vw;
+    height: auto;
+}
+
+.feat>div>p:first-of-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-block: 1rem;
+    position: relative;
+}
+
+.feat>div>p:first-of-type::after {
+    position: absolute;
+    bottom: calc(-1.5rem + 1.5px);
+    left: calc(50% - 2rem);
+    content: '';
+    background-color: var(--main-color);
+    width: 4rem;
+    height: 3px;
+
+}
+
+.feat>div>p:last-of-type {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 5vh;
+}
+
+/* End Features Section */
+
+/*
+*************************************************************************************/
+
+/* Start Testimonial section */
+
+.testi-cont {
+    width: 100%;
+    min-height: 40vh;
+    padding-block: 3rem;
+    background-image: linear-gradient(to right, var(--main-color) 50%, #573b12 50%);
+}
+.testi>p:first-of-type {
+    color: white;
+    font-weight: bold;
+    text-transform: lowercase;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+.testi-cont .testi {
+    width: var(--glob-width);
+    margin-inline: auto;
+}
+
+.people {
+    margin-top: 3rem;
+    margin-inline: auto;
+    /* text-align: center; */
+}
+
+.testi>div.people>div {
+    width: calc((100% - 2%) / 3);
+    background-color: var(--secondary-bg-color);
+    padding: 1rem;
+    display: inline-block;
+    text-align: center;
+}
+.testi>div.people>div:not(:last-of-type){
+    margin-right: calc(1% - 5px);
+}
+.testi>div.people>div q {
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+.testi hr {
+    border-top: 2px groove var(--main-color);
+    margin-block: 0.5rem;
+}
+
+.testi>div.people>div img {
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+
+.testi>div.people>div span {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+/* End Testimonial section */
+
+/*
+*************************************************************************************/
+/* Start Contact-Us section */
+
+.contact-cont {
+    width: 100%;
+    margin-inline: auto;
+    min-height: 80vh;
+    background: url('/imgs/contact.png') no-repeat center center / contain;
+    position: relative;
+    margin-block: 3rem;
+}
+
+.contact-cont .cont-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 40%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 1rem;
+    grid-template-areas:
+    "en eta"
+    "eph eta"
+    "eem eta"
+    "esub esum";
+    /* overflow: hidden; */
+}
+
+.contact-cont .cont-form input,
+.contact-cont form #ymsg {
+    display: inline-block;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-bg-color);
+}
+
+.contact-cont form #ymsg:focus::placeholder{
+    opacity: 0;
+    transition: 0.3s;
+}
+
+input:focus ,textarea:focus {
+    border: 1px solid var(--main-color);
+    outline-color: var(--main-color) ;
+    outline-style: groove;
+    outline-width: 1px;
+}
+
+.contact-cont form #yname {
+    grid-area: en;
+}
+
+.contact-cont form #yphone {
+    grid-area: eph;
+}
+
+.contact-cont form #yemail {
+    grid-area: eem;
+}
+
+.contact-cont form #ysub {
+    grid-area: esub;
+}
+
+.contact-cont form #ymsg {
+    grid-area: eta;
+    resize: none;
+}
+
+.contact-cont form #ysum {
+    grid-area: esum;
+    background-color: var(--main-color);
+    font-weight: 700;
+    color: white;
+}
+
+/* End Contact-Us section */
+
+
+/* End Styling Main */
+
+/*
+*************************************************************************************/
+
+/* Start footer section */
+/* Start Footer Section */
+
+footer {
+    max-width: 100%;
+    height: 10vh;
+    background-color: #573b12;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+footer .footer-cont{
+    /* max-width: 80%; */
+    margin-inline: auto;
+    text-align: left;
+}
+footer .footer-cont i {
+    /* display: inline-block; */
+    width : 20px;
+    height: 20px;
+}
+
+/* End Footer Section */
+
+
+/* End footer section */
+
+#upBtn, #upBtn{
+    background-color: var(--main-color);
+    width:4rem;
+    height:4rem;
+    box-shadow: 0px 0px 7px #333 inset;
+    border-radius: 30%;
+    cursor: pointer;
+    position:fixed;
+    bottom:2%;
+    right:2%;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    z-index: 10;
+    display: none;
+    /* opacity: 0; */
+}
+@keyframes ani-show
+{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+@keyframes ani-hide
+{
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+#upBtn :first-child{
+    color: #eee;
+    position: absolute;
+    top: 38%;
+    left:41.5%;
+    transform: scale(2.5 ,2.5 );
+}
